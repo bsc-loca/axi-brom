@@ -1,10 +1,12 @@
 source [pwd]/tcl/environment.tcl
 
+set g_ip_version ${g_ip_version_maj}.${g_ip_version_min}
+
 set ip_properties [ list \
     vendor "meep-project.eu" \
     library "MEEP" \
     name ${g_design_name} \
-    version "1.0" \
+    version "${g_ip_version}" \
     taxonomy "/MEEP_IP" \
     display_name "MEEP ${g_design_name}" \
     description "Initialize a BRAM to be used as ROM" \
