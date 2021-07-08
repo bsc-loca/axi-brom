@@ -74,5 +74,5 @@ source $root_dir/tcl/gen_runs.tcl
 source $root_dir/tcl/project_options.tcl
 puts "Project generation ended successfully"
 
-source $root_dir/tcl/gen_bitstream.tcl
+source $root_dir/tcl/gen_ip.tcl
 
