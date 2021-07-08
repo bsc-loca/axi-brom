@@ -14,46 +14,45 @@ use UNISIM.VCOMPONENTS.all;
 use ieee.std_logic_misc.all;
 
 
-
-entity axi_bootrom is
+entity axi_brom is
   port (
-    s_axi_aclk : IN STD_LOGIC;
-    s_axi_aresetn : IN STD_LOGIC;
-    s_axi_awaddr : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
-    s_axi_awlen : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    s_axi_awsize : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-    s_axi_awburst : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-    s_axi_awlock : IN STD_LOGIC;
-    s_axi_awcache : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    s_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-    s_axi_awvalid : IN STD_LOGIC;
-    s_axi_awready : OUT STD_LOGIC;
-    s_axi_wdata : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-    s_axi_wstrb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    s_axi_wlast : IN STD_LOGIC;
-    s_axi_wvalid : IN STD_LOGIC;
-    s_axi_wready : OUT STD_LOGIC;
-    s_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-    s_axi_bvalid : OUT STD_LOGIC;
-    s_axi_bready : IN STD_LOGIC;
-    s_axi_araddr : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
-    s_axi_arlen : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    s_axi_arsize : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-    s_axi_arburst : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-    s_axi_arlock : IN STD_LOGIC;
-    s_axi_arcache : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    s_axi_arprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-    s_axi_arvalid : IN STD_LOGIC;
-    s_axi_arready : OUT STD_LOGIC;
-    s_axi_rdata : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
-    s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-    s_axi_rlast : OUT STD_LOGIC;
-    s_axi_rvalid : OUT STD_LOGIC;
-    s_axi_rready : IN STD_LOGIC
+    ACLK : IN STD_LOGIC;
+    ARESETN : IN STD_LOGIC;
+    S_AXI_AWADDR : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
+    S_AXI_AWLEN : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    S_AXI_AWSIZE : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    S_AXI_AWBURST : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    S_AXI_AWLOCK : IN STD_LOGIC;
+    S_AXI_AWCACHE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    S_AXI_AWPROT : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    S_AXI_AWVALID : IN STD_LOGIC;
+    S_AXI_AWREADY : OUT STD_LOGIC;
+    S_AXI_WDATA : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+    S_AXI_WSTRB : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    S_AXI_WLAST : IN STD_LOGIC;
+    S_AXI_WVALID : IN STD_LOGIC;
+    S_AXI_WREADY : OUT STD_LOGIC;
+    S_AXI_BRESP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    S_AXI_BVALID : OUT STD_LOGIC;
+    S_AXI_BREADY : IN STD_LOGIC;
+    S_AXI_ARADDR : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
+    S_AXI_ARLEN : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    S_AXI_ARSIZE : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    S_AXI_ARBURST : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    S_AXI_ARLOCK : IN STD_LOGIC;
+    S_AXI_ARCACHE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    S_AXI_ARPROT : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    S_AXI_ARVALID : IN STD_LOGIC;
+    S_AXI_ARREADY : OUT STD_LOGIC;
+    S_AXI_RDATA : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
+    S_AXI_RRESP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    S_AXI_RLAST : OUT STD_LOGIC;
+    S_AXI_RVALID : OUT STD_LOGIC;
+    S_AXI_RREADY : IN STD_LOGIC
     );
-end axi_bootrom;
+end axi_brom;
 
-architecture behavioral of axi_bootrom is
+architecture behavioral of axi_brom is
 
 COMPONENT axi_bram
   PORT (
@@ -124,39 +123,39 @@ begin
 
 inst_bram_ctrl: axi_bram
   PORT MAP (
-    s_axi_aclk => s_axi_aclk,
-    s_axi_aresetn => s_axi_aresetn,
-    s_axi_awaddr => s_axi_awaddr,
-    s_axi_awlen => s_axi_awlen,
-    s_axi_awsize => s_axi_awsize,
-    s_axi_awburst => s_axi_awburst,
-    s_axi_awlock => s_axi_awlock,
-    s_axi_awcache => s_axi_awcache,
-    s_axi_awprot => s_axi_awprot,
-    s_axi_awvalid => s_axi_awvalid,
-    s_axi_awready => s_axi_awready,
-    s_axi_wdata => s_axi_wdata,
-    s_axi_wstrb => s_axi_wstrb,
-    s_axi_wlast => s_axi_wlast,
-    s_axi_wvalid => s_axi_wvalid,
-    s_axi_wready => s_axi_wready,
-    s_axi_bresp => s_axi_bresp,
-    s_axi_bvalid => s_axi_bvalid,
-    s_axi_bready => s_axi_bready,
-    s_axi_araddr => s_axi_araddr,
-    s_axi_arlen => s_axi_arlen,
-    s_axi_arsize => s_axi_arsize,
-    s_axi_arburst => s_axi_arburst,
-    s_axi_arlock => s_axi_arlock,
-    s_axi_arcache => s_axi_arcache,
-    s_axi_arprot => s_axi_arprot,
-    s_axi_arvalid => s_axi_arvalid,
-    s_axi_arready => s_axi_arready,
-    s_axi_rdata => s_axi_rdata,
-    s_axi_rresp => s_axi_rresp,
-    s_axi_rlast => s_axi_rlast,
-    s_axi_rvalid => s_axi_rvalid,
-    s_axi_rready => s_axi_rready,
+    s_axi_aclk => ACLK,
+    s_axi_aresetn => ARESETN,
+    s_axi_awaddr => S_AXI_AWADDR,
+    s_axi_awlen => S_AXI_AWLEN,
+    s_axi_awsize => S_AXI_AWSIZE,
+    s_axi_awburst => S_AXI_AWBURST,
+    s_axi_awlock => S_AXI_AWLOCK,
+    s_axi_awcache => S_AXI_AWCACHE,
+    s_axi_awprot => S_AXI_AWPROT,
+    s_axi_awvalid => S_AXI_AWVALID,
+    s_axi_awready => S_AXI_AWREADY,
+    s_axi_wdata => S_AXI_WDATA,
+    s_axi_wstrb => S_AXI_WSTRB,
+    s_axi_wlast => S_AXI_WLAST,
+    s_axi_wvalid => S_AXI_WVALID,
+    s_axi_wready => S_AXI_WREADY,
+    s_axi_bresp => S_AXI_BRESP,
+    s_axi_bvalid => S_AXI_BVALID,
+    s_axi_bready => S_AXI_BREADY,
+    s_axi_araddr => S_AXI_ARADDR,
+    s_axi_arlen => S_AXI_ARLEN,
+    s_axi_arsize => S_AXI_ARSIZE,
+    s_axi_arburst => S_AXI_ARBURST,
+    s_axi_arlock => S_AXI_ARLOCK,
+    s_axi_arcache => S_AXI_ARCACHE,
+    s_axi_arprot => S_AXI_ARPROT,
+    s_axi_arvalid => S_AXI_ARVALID,
+    s_axi_arready => S_AXI_ARREADY,
+    s_axi_rdata => S_AXI_RDATA,
+    s_axi_rresp => S_AXI_RRESP,
+    s_axi_rlast => S_AXI_RLAST,
+    s_axi_rvalid => S_AXI_RVALID,
+    s_axi_rready => S_AXI_RREADY,
     bram_rst_a => bram_rst_a,
     bram_clk_a => bram_clk_a,
     bram_en_a => bram_en_a,
