@@ -64,15 +64,8 @@ set src_files [glob ${root_dir}/src/*]
 set ip_files [glob -nocomplain ${root_dir}/ip/*/*.xci]
 add_files ${src_files}
 add_files -quiet ${ip_files}
-# Add Constraint files to project
-add_files -fileset [get_filesets constrs_1] "$root_dir/xdc/${g_project_name}_pinout.xdc"
-add_files -fileset [get_filesets constrs_1] "$root_dir/xdc/${g_project_name}_timing.xdc"
-add_files -fileset [get_filesets constrs_1] "$root_dir/xdc/${g_project_name}_ila.xdc"
-add_files -fileset [get_filesets constrs_1] "$root_dir/xdc/${g_project_name}_alveo280.xdc"
 set_property target_language VHDL [current_project]
 source $root_dir/tcl/gen_runs.tcl
 source $root_dir/tcl/project_options.tcl
 puts "Project generation ended successfully"
-
 source $root_dir/tcl/gen_ip.tcl
-
