@@ -26,7 +26,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 ################################################################
 # START
 ################################################################
-set root_dir [ pwd ]
+set root_dir $script_folder/../
 
 set g_project_name $g_project_name
 set projec_dir $root_dir/project
@@ -65,7 +65,8 @@ set ip_files [glob -nocomplain ${root_dir}/ip/*/*.xci]
 add_files ${src_files}
 add_files -quiet ${ip_files}
 set_property target_language VHDL [current_project]
-source $root_dir/tcl/gen_runs.tcl
-source $root_dir/tcl/project_options.tcl
+# source $root_dir/tcl/gen_runs.tcl
+# source $root_dir/tcl/project_options.tcl
 puts "Project generation ended successfully"
 source $root_dir/tcl/gen_ip.tcl
+puts "IP generation ended successfully"

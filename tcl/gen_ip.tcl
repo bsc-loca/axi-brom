@@ -1,6 +1,5 @@
 source [pwd]/tcl/environment.tcl
 
-set g_ip_version ${g_ip_version_maj}.${g_ip_version_min}
 
 set ip_properties [ list \
     vendor "meep-project.eu" \
