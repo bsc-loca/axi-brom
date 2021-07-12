@@ -1,4 +1,4 @@
-source [pwd]/tcl/environment.tcl
+source $g_root_dir/tcl/environment.tcl
 
 
 set ip_properties [ list \
