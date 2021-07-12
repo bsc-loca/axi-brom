@@ -26,7 +26,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 ################################################################
 # START
 ################################################################
-set root_dir [ pwd ]
+set root_dir $g_root_dir
 
 set g_project_name $g_project_name
 set projec_dir $root_dir/project
