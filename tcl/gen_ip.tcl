@@ -5,7 +5,7 @@ set ip_properties [ list \
     vendor "meep-project.eu" \
     library "MEEP" \
     name ${g_design_name} \
-    version "${g_ip_version}" \
+    version "$g_ip_version" \
     taxonomy "/MEEP_IP" \
     display_name "MEEP ${g_design_name}" \
     description "Initialize a BRAM to be used as ROM" \
@@ -46,4 +46,6 @@ set_property value ACTIVE_LOW ${aresetn_polarity}
 # Save IP and close project
 ipx::check_integrity ${ip_core}
 ipx::save_core ${ip_core}
+
+puts "IP succesfully packaged "	
 
