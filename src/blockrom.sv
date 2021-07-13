@@ -1,11 +1,11 @@
 module blockrom (
          
- input [19:0] addra ,
- input clka         ,
- input [127:0] dina ,
- input [127:0] douta,
- input ena          ,
- input [15:0] wea   
+ input  [19:0] addra ,
+ input  clka         ,
+ input  [127:0] dina ,
+ output [127:0] douta,
+ input  ena          ,
+ input  [15:0] wea   
 );
 
 
