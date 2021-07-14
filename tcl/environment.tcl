@@ -15,6 +15,6 @@ set g_project_name axi_brom
 set g_root_dir    $script_folder/../                    
 set g_project_dir ${g_root_dir}/project    
 set g_design_name ${g_project_name}          
-set g_rtl_ext vhd 	  				  
+set g_rtl_ext sv 	  				  
 set g_top_module  ${g_root_dir}/src/${g_project_name}_top.$g_rtl_ext
 set g_useBlockDesign n 	  

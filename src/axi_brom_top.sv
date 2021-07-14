@@ -1,6 +1,6 @@
-module blockrom (
+module axi_brom (
          
- input  [19:0] addra ,
+ input  [15:0] addra ,
  input  clka         ,
  input  [127:0] dina ,
  output [127:0] douta,
