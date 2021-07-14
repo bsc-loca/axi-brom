@@ -30,7 +30,7 @@ localparam BRAM_LINE_OFFSET = $clog2(MEM_DATA_WIDTH/8);
 
  assign douta = boot_ram[ram_addr_dly];
 
- initial $readmemh("../src/bootrom.mem", boot_ram);
+ initial $readmemh("bootrom.mem", boot_ram);
 
 
 endmodule // fpga_top
