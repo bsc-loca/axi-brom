@@ -8,20 +8,19 @@ proc get_script_folder {} {
 variable script_folder
 set script_folder [_tcl::get_script_folder]
 
+
 puts "The environment tcl will be sourced from ${script_folder}"
 source $script_folder/environment.tcl
-################################################################
-# Check if script is running in correct Vivado version.
-################################################################
-set scripts_vivado_version 2020.1
-set current_vivado_version [version -short]
 
-if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
-    puts ""
-    catch {common::send_gid_msg -ssname BD::TCL -id 2041 -severity "ERROR" "This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."}
+# Redefine the FPGA part in case the script is called with arguments
+# It defaults to u280
+if { $::argc > 0 } {
 
-    return 1
+	set g_board_part [lindex $argv 0]
+	set g_fpga_part "xc${g_board_part}-fsvh2892-2L-e"
+
 }
+
 
 ################################################################
 # START
@@ -32,11 +31,9 @@ set projec_dir $root_dir/project
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-    create_project $g_project_name $projec_dir -force -part xcu280-fsvh2892-2L-e
+    create_project $g_project_name $projec_dir -force -part $g_fpga_part 
 }
 # Set project properties
-set obj [current_project]
-set_property -name "board_part" -value "xilinx.com:au280:part0:1.1" -objects $obj
 
 # CHANGE DESIGN NAME HERE
 variable design_name
