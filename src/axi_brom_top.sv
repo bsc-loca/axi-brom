@@ -17,12 +17,11 @@
 // Description: 
 
 
-module #(
+module native_bram #(
   // channel for BRAM and DRAM
-  parameter integer MEM_DATA_WIDTH = 128;
-  parameter integer BRAM_ADDR_WIDTH = 16;     // 64 KB
-)
-axi_brom (          
+  parameter integer MEM_DATA_WIDTH = 128,
+  parameter integer BRAM_ADDR_WIDTH = 16     // 64 KB
+) (          
   input  [BRAM_ADDR_WIDTH-1:0] addra,
   input  clka,
   input  [MEM_DATA_WIDTH-1:0] dina,
@@ -34,8 +33,8 @@ axi_brom (
 
 
 // channel for BRAM and DRAM
-localparam BRAM_LINE = 2 ** BRAM_ADDR_WIDTH  * 8 / MEM_DATA_WIDTH;
-localparam BRAM_LINE_OFFSET = $clog2(MEM_DATA_WIDTH/8); 
+localparam integer BRAM_LINE = 2 ** BRAM_ADDR_WIDTH  * 8 / MEM_DATA_WIDTH;
+localparam integer BRAM_LINE_OFFSET = $clog2(MEM_DATA_WIDTH/8); 
  
  // the inferred BRAMs
  reg [MEM_DATA_WIDTH-1:0] ram [0 : BRAM_LINE-1];

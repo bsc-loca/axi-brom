@@ -76,8 +76,8 @@ set src_files [glob ${root_dir}/src/*]
 add_files ${src_files}
 #add_files -quiet ${ip_files}
 
+#source $root_dir/tcl/project_options.tcl
 source $root_dir/tcl/gen_ip.tcl
-source $root_dir/tcl/project_options.tcl
 
 
 puts "Project generation ended successfully"

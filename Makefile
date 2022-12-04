@@ -20,8 +20,7 @@ $(IPMODE):
 
 
 clean:
-	git clean -f
-	@(cd ip; find . -type f ! -name "*.tcl" -exec rm -r {} \;)
+	git clean -fxd
 	rm -rf xgui project *brom
 
 
