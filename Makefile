@@ -14,14 +14,14 @@ all: native_bram
 #Generate the Ethernet IP
 
 $(IPMODE): 
-	@(echo "Generate AXI BROM IP for the Alveo $(FPGA_BOARD)")
+	@(echo "Package a Native BRAM IP for the Alveo $(FPGA_BOARD)")
 	$(VIVADO_XLNX) $(VIVADO_OPT)  ./tcl/gen_project.tcl -tclargs $(FPGA_BOARD) $@
 	@(echo "IP created under folder $@") ;\
 
 
 clean:
 	git clean -fxd
-	rm -rf xgui project *brom
+	rm -rf xgui project native*
 
 
 
