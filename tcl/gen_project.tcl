@@ -43,7 +43,7 @@ if { $::argc > 0 } {
 
 set root_dir $g_root_dir
 set g_project_name $g_project_name
-set projec_dir $root_dir/project
+set projec_dir $root_dir/${g_ip_target}
 
 ################################################################
 # START

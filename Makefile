@@ -4,19 +4,19 @@ VIVADO_PATH := /opt/Xilinx/Vivado/$(VIVADO_VER)/bin/
 VIVADO_XLNX := $(VIVADO_PATH)/vivado
 VIVADO_OPT  := -mode batch -nolog -nojournal -notrace -source
 FPGA_BOARD  ?= u55c
-IP_NAME     := axi_brom
+IP_NAME     := native_bram
 
 
-IPMODE = brom
+IPMODE = native_bram
 
-all: brom
+all: native_bram
 
 #Generate the Ethernet IP
 
 $(IPMODE): 
 	@(echo "Generate AXI BROM IP for the Alveo $(FPGA_BOARD)")
 	$(VIVADO_XLNX) $(VIVADO_OPT)  ./tcl/gen_project.tcl -tclargs $(FPGA_BOARD) $@
-	@(echo "IP created under folder axi_$@") ;\
+	@(echo "IP created under folder $@") ;\
 
 
 clean:

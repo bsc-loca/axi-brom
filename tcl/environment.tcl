@@ -31,7 +31,7 @@ set script_folder [_tcl::get_script_folder]
 set g_vivado_version [version -short] 
 set g_board_part u280
 set g_fpga_part "xc${g_board_part}-fsvh2892-2L-e"
-set g_project_name native_bram           
+set g_project_name "native_bram"           
 set g_root_dir    $script_folder/../                    
 set g_project_dir ${g_root_dir}/project    
 set g_design_name ${g_project_name}          
