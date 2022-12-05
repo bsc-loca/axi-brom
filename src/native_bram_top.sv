@@ -20,7 +20,7 @@
 module native_bram #(
   // channel for BRAM and DRAM
   parameter integer MEM_DATA_WIDTH = 32,
-  parameter integer BRAM_ADDR_WIDTH = 7     // 128x4Bytes = 512B
+  parameter integer BRAM_ADDR_WIDTH = 11     // 128x4Bytes = 512B
 ) (          
   input  [BRAM_ADDR_WIDTH-1:0] addra,
   input  clka,
