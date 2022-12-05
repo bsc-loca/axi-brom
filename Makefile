@@ -7,9 +7,9 @@ FPGA_BOARD  ?= u55c
 IP_NAME     := native_bram
 
 
-IPMODE = native_bram
+IPMODE = native_bram meep_rom
 
-all: native_bram
+all: meep_rom
 
 #Generate the Ethernet IP
 
