@@ -21,7 +21,7 @@ $(IPMODE):
 
 clean:
 	git clean -fxd
-	rm -rf xgui project native*
+	rm -rf xgui project $(IPMODE)
 
 
 
