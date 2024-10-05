@@ -38,6 +38,9 @@ if { $::argc > 0 } {
 	set g_board_part [lindex $argv 0]
     set g_ip_target  [lindex $argv 1]
 	set g_fpga_part "xc${g_board_part}-fsvh2892-2L-e"
+    if { $g_board_part == "u250" } {
+      set g_fpga_part xcu250-figd2104-2L-e
+    }
 
 }
 

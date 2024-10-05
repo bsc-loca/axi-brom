@@ -43,7 +43,7 @@ set family_lifecycle { \
 ipx::package_project
 set ip_core [ipx::current_core]
 set_property -dict ${ip_properties} ${ip_core}
-set_property SUPPORTED_FAMILIES ${family_lifecycle} ${ip_core}
+# set_property SUPPORTED_FAMILIES ${family_lifecycle} ${ip_core}
 
 ipx::add_bus_interface bram [ipx::current_core]
 set_property abstraction_type_vlnv xilinx.com:interface:bram_rtl:1.0 [ipx::get_bus_interfaces bram -of_objects [ipx::current_core]]
